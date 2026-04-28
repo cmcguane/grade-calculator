@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade Calculator</title>
+</head>
+<body style="font-family: Arial; background-color: #f4f4f4; padding: 20px;">
+
+    <div style="background-color: #fff; padding: 20px; max-width: 400px; margin: auto; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+        <h2 style="text-align: center;">Grade Calculator</h2>
+
+        <label style="display:block; margin-top:10px;">Quiz Result (%)</label>
+        <input type="number" id="quiz" style="width:100%; padding:8px; margin-top:5px;">
+
+        <label style="display:block; margin-top:10px;">Exam 1 Result (%)</label>
+        <input type="number" id="exam" style="width:100%; padding:8px; margin-top:5px;">
+
+        <label style="display:block; margin-top:10px;">Project Result (%)</label>
+        <input type="number" id="project" style="width:100%; padding:8px; margin-top:5px;">
+
+        <button onclick="calculateGrade()" style="margin-top:15px; width:100%; padding:10px; background-color:#28a745; color:#fff; border:none; border-radius:5px; cursor:pointer;">
+            Calculate Grade
+        </button>
+
+        <h3 id="result" style="text-align:center; margin-top:15px;"></h3>
+    </div>
+
+    <script>
+        function calculateGrade() {
+            let quiz = parseFloat(document.getElementById('quiz').value) || 0;
+            let exam = parseFloat(document.getElementById('exam').value) || 0;
+            let project = parseFloat(document.getElementById('project').value) || 0;
+
+            let grade = (quiz * 0.15) + (exam * 0.20) + (project * 0.15);
+
+            document.getElementById('result').innerText = "Current Grade: " + grade.toFixed(2) + "%";
+        }
+    </script>
+
+</body>
+</html>
